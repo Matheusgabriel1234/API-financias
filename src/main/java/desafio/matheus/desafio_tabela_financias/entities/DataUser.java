@@ -1,9 +1,15 @@
 package desafio.matheus.desafio_tabela_financias.entities;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,13 +24,20 @@ private String lastName;
 private String email;
 private String password;
 
-public DataUser(Long id, String firstName, String lastName, String email, String password) {
+@OneToMany(mappedBy = "userId",cascade = CascadeType.ALL)
+private List<FinanceData> dataFinance;
+
+
+
+public DataUser(Long id, String firstName, String lastName, String email, String password,
+		List<FinanceData> dataFinance) {
 	super();
 	this.id = id;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.email = email;
 	this.password = password;
+	this.dataFinance = dataFinance;
 }
 
 
@@ -80,6 +93,16 @@ public String getPassword() {
 
 public void setPassword(String password) {
 	this.password = password;
+}
+
+
+public List<FinanceData> getDataFinance() {
+	return dataFinance;
+}
+
+
+public void setDataFinance(List<FinanceData> dataFinance) {
+	this.dataFinance = dataFinance;
 }
 
 
