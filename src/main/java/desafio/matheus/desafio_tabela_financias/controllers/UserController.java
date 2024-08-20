@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import desafio.matheus.desafio_tabela_financias.dto.UserDTO;
+import desafio.matheus.desafio_tabela_financias.dto.UserViewDTO;
 import desafio.matheus.desafio_tabela_financias.entities.DataUser;
 import desafio.matheus.desafio_tabela_financias.entities.FinanceData;
 import desafio.matheus.desafio_tabela_financias.repository.UserRepository;
@@ -36,22 +38,22 @@ public UserController(UserService serv, FinanceService financeService) {
 }
 
 @GetMapping
-public ResponseEntity<List<DataUser>> getAll(){
-List<DataUser> obj = serv.getAll();
+public ResponseEntity<List<UserViewDTO>> getAll(){
+List<UserViewDTO> obj = serv.getAll();
 return new ResponseEntity<>(obj, HttpStatus.OK);
 }
 
 @GetMapping("/{id}")
-public ResponseEntity<Optional<DataUser>> getById(@PathVariable Long id){
-Optional<DataUser> user = serv.getById(id);
+public ResponseEntity<Optional<UserViewDTO>> getById(@PathVariable Long id){
+Optional<UserViewDTO> user = serv.getById(id);
 return new ResponseEntity<>(user,HttpStatus.OK);
 
 
 }
 
 @PostMapping
-public ResponseEntity<DataUser> create(@RequestBody DataUser user){
-DataUser obj = serv.create(user);
+public ResponseEntity<UserDTO> create(@RequestBody UserDTO user){
+UserDTO obj = serv.create(user);
 return new ResponseEntity<>(obj,HttpStatus.CREATED);
 }
 
