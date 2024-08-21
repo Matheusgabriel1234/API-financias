@@ -20,6 +20,7 @@ import desafio.matheus.desafio_tabela_financias.entities.FinanceData;
 import desafio.matheus.desafio_tabela_financias.repository.UserRepository;
 import desafio.matheus.desafio_tabela_financias.service.FinanceService;
 import desafio.matheus.desafio_tabela_financias.service.UserService;
+import jakarta.validation.Valid;
 
 @RequestMapping("/api/users")
 @RestController
@@ -44,15 +45,15 @@ return new ResponseEntity<>(obj, HttpStatus.OK);
 }
 
 @GetMapping("/{id}")
-public ResponseEntity<Optional<UserViewDTO>> getById(@PathVariable Long id){
-Optional<UserViewDTO> user = serv.getById(id);
+public ResponseEntity<UserViewDTO> getById(@PathVariable Long id){
+UserViewDTO user = serv.getById(id);
 return new ResponseEntity<>(user,HttpStatus.OK);
 
 
 }
 
 @PostMapping
-public ResponseEntity<UserDTO> create(@RequestBody UserDTO user){
+public ResponseEntity<UserDTO> create(@Valid @RequestBody UserDTO user){
 UserDTO obj = serv.create(user);
 return new ResponseEntity<>(obj,HttpStatus.CREATED);
 }

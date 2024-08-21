@@ -6,8 +6,10 @@ import java.util.List;
 
 import desafio.matheus.desafio_tabela_financias.entities.DataUser;
 import desafio.matheus.desafio_tabela_financias.entities.FinanceData;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-public record UserDTO(String lastName,String firstName,String email,String password,List<FinanceData> finance) {
+public record UserDTO(@NotBlank(message = "Last name is mandatory") String lastName,@NotBlank(message = "First Name is mandatory")String firstName,@Email(message = "Email must be valid") @NotBlank(message = "Email is mandatory") String email,@NotBlank(message = "Password is mandatory") String password,List<FinanceData> finance) {
 
 	
 	
