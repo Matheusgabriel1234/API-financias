@@ -14,6 +14,9 @@ public record UserDTO(@NotBlank(message = "Last name is mandatory") String lastN
 	
 	
 public static UserDTO fromEntity(DataUser user) {
+	if (user == null) {
+	    throw new IllegalArgumentException("User cannot be null");
+	}
         return new UserDTO(
             user.getFirstName(),
             user.getLastName(),
@@ -27,6 +30,7 @@ public static UserDTO fromEntity(DataUser user) {
 	
 	
 public DataUser convertToEntity() {
+	
 DataUser user = new DataUser();
 
 user.setFirstName(this.firstName);

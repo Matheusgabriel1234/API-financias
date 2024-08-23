@@ -1,6 +1,6 @@
 package desafio.matheus.desafio_tabela_financias.service;
 
-import javax.management.RuntimeErrorException;
+
 
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,10 @@ public FinanceService(UserRepository userRepo, FinanceRepository financeRepo) {
 
 
 
-    public FinanceData addFinancialData(Long userId, FinanceData financialData) {
+
+
+
+public FinanceData addFinancialData(Long userId, FinanceData financialData) {
         DataUser user = userRepo.findById(userId)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
         financialData.setUserId(user);
