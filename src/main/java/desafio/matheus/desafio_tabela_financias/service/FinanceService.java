@@ -2,6 +2,9 @@ package desafio.matheus.desafio_tabela_financias.service;
 
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import desafio.matheus.desafio_tabela_financias.entities.DataUser;
@@ -25,6 +28,18 @@ public FinanceService(UserRepository userRepo, FinanceRepository financeRepo) {
 
 
 
+public List<FinanceData> getAll(){
+	return financeRepo.findAll();
+}
+
+public Optional<FinanceData> getById(Long id) {
+	return financeRepo.findById(id);
+}
+
+
+public void deleteById(Long id) {
+financeRepo.deleteById(id);
+}
 
 
 public FinanceData addFinancialData(Long userId, FinanceData financialData) {

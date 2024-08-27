@@ -1,9 +1,11 @@
 package desafio.matheus.desafio_tabela_financias.entities;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 
@@ -25,9 +27,13 @@ public Long id;
 @ManyToOne
 @JoinColumn(name = "user_id")
 public DataUser userId;
+@Column(name ="created_At")
+public LocalDateTime createdAt;
 public BigDecimal amount;
 public String description;
 public String category;
+
+
 public Long getId() {
 	return id;
 }
