@@ -25,7 +25,9 @@ Maven installed
 Getting Started
 
 Clone the Repository
+
 git clone https://github.com/yourusername/tabela-financas.git
+
 cd tabela-financas
 Database Setup
 Create a PostgreSQL database:
@@ -41,26 +43,34 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
 Build and Run the Application
 
 mvn clean install
 mvn spring-boot:run
 Accessing the API Documentation
 Once the application is running, you can access the Swagger UI for API documentation at:
+
 http://localhost:8080/swagger-ui/index.html
 
 API Endpoints
 
 User Management
 GET /api/users: Retrieve all users.
+
 POST /api/users: Create a new user.
+
 GET /api/users/{id}: Retrieve a user by ID.
+
 DELETE /api/users/{id}: Delete a user by ID.
 
 Financial Data Management
 GET /api/finances: Retrieve all financial records.
+
 POST /api/users/addfinance/{id}: Add financial data to a user.
+
 GET /api/finances/{id}: Retrieve financial data by ID.
+
 DELETE /api/finances/{id}: Delete financial data by ID.
 
 Testing
