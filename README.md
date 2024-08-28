@@ -32,16 +32,22 @@ cd tabela-financas
 Database Setup
 Create a PostgreSQL database:
 CREATE DATABASE tabelafinanciasdb;
+
 Configure your PostgreSQL credentials in the application.properties file:
 
 properties:
 spring.datasource.url=jdbc:postgresql://localhost:5432/tabelafinanciasdb
+
 spring.datasource.username=postgres
+
 spring.datasource.password=yourpassword
+
 spring.datasource.driver-class-name=org.postgresql.Driver
 
 spring.jpa.hibernate.ddl-auto=update
+
 spring.jpa.show-sql=true
+
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 Build and Run the Application
